@@ -23,7 +23,7 @@ Over the course of 7 weeks, you'll go from zero to launching your own website us
 	```sh
 	git clone https://github.com/doubleudoublej/python-course.git
 	```
-2. **Open in VS Code** and start with `Week01/lesson01.py`.
+2. **Open in VS Code**
 3. **View the presentation slides:**
 	[Workshop Slides (Canva)](https://www.canva.com/design/DAGyMMb7t9g/8mCx_QAC2_hfIuAxeSLgDg/view?utm_content=DAGyMMb7t9g&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hfc180c20d1)
 4. Follow along each week and commit your progress!
