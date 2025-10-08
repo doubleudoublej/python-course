@@ -1,0 +1,12 @@
+
+
+{
+  "Course": {
+    "name": "Jia Jun's Python Course",
+    "established": 2025,
+    "location": {
+      "country": "Singapore",
+      "room": "NTU TR 92"
+    }
+  }
+}

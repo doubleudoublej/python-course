@@ -1,16 +1,16 @@
 # For Loops
 
-numbers = [1, 2, 3, 4]
-for num in numbers:
-    print("I found", num)
-
-print("-----")
-
-# # Looping through a string
-# for char in "Hello":
-#     print("The char is", char)
+# numbers = [1, 2]
+# for num in numbers:
+#     print("I found", num)
 
 # print("-----")
+
+# Looping through a string
+for char in "Hello":
+    print("The char is", char)
+
+print("-----")
 
 # # While Loops
 # count = 0

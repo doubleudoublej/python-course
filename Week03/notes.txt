@@ -1,0 +1,11 @@
+# File for file-handling.py to read and write into
+
+This file is for lesson usage and has no other purpose :D
+
+ABCDEFG
+
+1234567
+
+Thank you
+
+------------------------

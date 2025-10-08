@@ -36,6 +36,15 @@ Over the course of 7 weeks, you'll go from zero to launching your own website us
 - Python crash course (variables, input/output, if/else)
 - Mini project: 🎲 Guess the Number Game
 
+**Week 3 – Python Fundamentals & Data Handling**
+- Data structures: Lists, Tuples, Dictionaries 📊
+- Functions: Creating reusable code blocks 🔧
+- Error handling: Try/except for robust programs 🛡️
+- File I/O: Reading and writing files 📁
+- JSON: Working with data formats 🗂️
+- Modules: Importing and using libraries 📚
+- Mini project: 👤 Profile Manager with JSON storage
+
 <!-- Add more weeks as you progress! -->
 
 ---
