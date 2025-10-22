@@ -2,6 +2,7 @@ from flask import Flask # To create a Flask application
 from flask import render_template # To render HTML templates
 from flask_sqlalchemy import SQLAlchemy # For database handling
 from datetime import datetime, timezone # To handle date and time
+from flask import request, redirect # To handle form data and redirects
 
 app = Flask(__name__) # Initialize the Flask application
 # simpliest and correct for most cases, have to change stuffs
@@ -19,9 +20,27 @@ class myTask(db.Model):
     def __repr__(self):
         return f"Task {self.id}" 
 
-@app.route('/') # route for root URL
+# Routes to Webpages
+# Home page
+@app.route('/', methods=['GET', 'POST']) # route for root URL
 def home():
-    return render_template('index.html') # Render the index.html template
+
+    # Add a new task
+    if request.method == "POST":
+        current_task = request.form['content'] # Get task content from form input
+        new_task = myTask(content=current_task) # Create a new task instance
+        try:
+            db.session.add(new_task) # Add the new task to the database session
+            db.session.commit() # Commit the session to save the task
+            return redirect('/') # Redirect to home page after adding (updating the task list)
+        except Exception as e:
+            print(f"ERROR: {e}")
+            return f"ERROR: {e}" # Return error message if something goes wrong
+    # See all tasks
+    else:
+        tasks = myTask.query.order_by(myTask.created).all() # Getting all tasks ordered by when it was created
+        return render_template('index.html', tasks=tasks) # Render the index.html template with tasks
+
 
 if __name__ == '__main__':
     with app.app_context():

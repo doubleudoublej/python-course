@@ -1,15 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="static/styles.css"> <!-- Link to the CSS file -->
-    
-    <link rel="stylesheet" href="style.css">
-    <title>My App</title> <!-- What you will see at the header of tab -->
-</head>
-<body>
-    <h1>Welcome to My App</h1>
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsum totam rem illo esse quo sed quae earum consectetur qui facere, recusandae eum excepturi optio voluptas iste error molestiae dolosssrem necessitatibus!</p>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block head %}
+<title> Tab header </title>
+{% endblock %}
+
+{% block body %}
+
+<div class = "content">
+        <h1>To Do List</h1>
+
+        {% if tasks | length < 1 %}
+        <h3>There are no tasks ... Create one here!</h3>
+        {% else %}
+
+        <table class = "content">
+            <tr>
+                <th> Task </th>
+                <th> Added </th>
+                <th> Actions </th>
+            </tr>
+            {% for task in tasks %} <!---Looping through tasks: For loop --->
+                <tr>
+                    <td>{{ task.content }}</td>
+                    <td>{{ task.created.strftime('%Y-%m-%d %H:%M:%S') }}</td>
+                    <td>
+                        <a href="/update/{{ task.id }}">Edit</a> 
+                        <br/>
+                        <a href="/delete/{{ task.id }}">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+        {% endif %}
+        <form action="/" method="POST">
+            <input type="text" placeholder="Enter your task here" name="content" id="content">
+            <input type="submit" value="Add Task" id="btn_add">
+        </form>
+</div>
+
+{% endblock %}
