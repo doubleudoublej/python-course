@@ -1,7 +1,7 @@
 from flask import Flask # To create a Flask application
 from flask import render_template # To render HTML templates
 from flask_sqlalchemy import SQLAlchemy # For database handling
-from datetime import datetime, timezone # To handle date and time
+from datetime import datetime, timedelta, timezone # To handle date and time
 from flask import request, redirect # To handle form data and redirects
 
 app = Flask(__name__) # Initialize the Flask application
@@ -15,7 +15,7 @@ class myTask(db.Model):
     id = db.Column(db.Integer, primary_key=True) # Primary key column
     content = db.Column(db.String(100), nullable=False) # Your actual task to do
     complete = db.Column(db.Boolean, default=False)  # Whether your task is completed
-    created = db.Column(db.DateTime, default=datetime.now(timezone.utc))  # When is is created
+    created = db.Column(db.DateTime, default=datetime.now(timezone.utc).astimezone(timezone(timedelta(hours=8))))  # When is is created
 
     def __repr__(self):
         return f"Task {self.id}" 
