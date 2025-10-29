@@ -42,6 +42,45 @@ def home():
         return render_template('index.html', tasks=tasks) # Render the index.html template with tasks
 
 
+# Delete an Item
+@app.route("/delete/<int:id>") # route for deleting a task by ID
+def delete(id:int):
+    delete_task = myTask.query.get_or_404(id) # Get the task by ID or return 404 if not found
+    try:
+        db.session.delete(delete_task) # Delete the task from the database session
+        db.session.commit() # Commit the session to save changes
+        return redirect('/') # Redirect to home page after deletion
+    except Exception as e:
+        print(f"ERROR: {e}")
+        return f"ERROR: {e}" # Return error message if something goes wrong
+
+
+# Edit an Item
+@app.route("/edit/<int:id>", methods=['GET', 'POST']) # route for editing a task by ID
+def edit(id:int):
+    edit_task = myTask.query.get_or_404(id) # Get the task by ID or return 404 if not found
+    if request.method == "POST":
+        edit_task.content = request.form['content'] # Update the task content from form input
+        try:
+            db.session.commit() # Commit the session to save changes
+            return redirect('/') # Redirect to home page after editing
+        except Exception as e:
+            print(f"ERROR: {e}")
+            return f"ERROR: {e}" # Return error message if something goes wrong
+    else:
+        return render_template('edit.html', task=edit_task) # Render the edit.html template with the task to edit
+
+
+
+
+
+
+
+
+
+
+
+
 if __name__ == '__main__':
     with app.app_context():
         db.create_all() # Create database tables
