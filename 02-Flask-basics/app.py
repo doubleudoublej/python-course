@@ -19,6 +19,10 @@ class myTask(db.Model):
 
     def __repr__(self):
         return f"Task {self.id}" 
+    
+
+with app.app_context():
+    db.create_all() # Create database tables
 
 # Routes to Webpages
 # Home page
@@ -82,7 +86,5 @@ def edit(id:int):
 
 
 if __name__ == '__main__':
-    with app.app_context():
-        db.create_all() # Create database tables
-    
+   
     app.run(debug=True) # To run and see the output in the browser
