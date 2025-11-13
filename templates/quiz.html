@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h1>Quiz</h1>
+  <div class="card mb-3">
+    <div class="card-body">
+      <h5 class="card-title">{{ card.front }}</h5>
+      <p class="text-muted">Try to recall the answer, then click reveal.</p>
+      <a class="btn btn-outline-success" href="{{ url_for('view_card', card_id=card.id) }}">Reveal Answer</a>
+      <a class="btn btn-primary ms-2" href="{{ url_for('quiz') }}">Next Card</a>
+    </div>
+  </div>
+{% endblock %}

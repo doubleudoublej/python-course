@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h1>All Flashcards</h1>
+  {% if not cards %}
+    <p>No cards yet. <a href="{{ url_for('create_card') }}">Create one</a>.</p>
+  {% else %}
+    <div class="list-group">
+      {% for c in cards %}
+        <div class="list-group-item d-flex justify-content-between align-items-start">
+          <div>
+            <h5 class="mb-1">{{ c.front }}</h5>
+            <small>ID: {{ c.id }}</small>
+          </div>
+          <div class="btn-group">
+            <a class="btn btn-sm btn-outline-primary" href="{{ url_for('view_card', card_id=c.id) }}">View</a>
+            <a class="btn btn-sm btn-outline-secondary" href="{{ url_for('edit_card', card_id=c.id) }}">Edit</a>
+            <form method="post" action="{{ url_for('delete_card', card_id=c.id) }}" style="display:inline;" onsubmit="return confirm('Delete this card?');">
+              <button class="btn btn-sm btn-outline-danger" type="submit">Delete</button>
+            </form>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endblock %}

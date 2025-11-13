@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h1>Card</h1>
+  <div class="card mb-3">
+    <div class="card-body">
+      <h5 class="card-title">{{ card.front }}</h5>
+      <p class="card-text">{{ card.back }}</p>
+      <a class="btn btn-secondary" href="{{ url_for('edit_card', card_id=card.id) }}">Edit</a>
+      <a class="btn btn-outline-primary" href="{{ url_for('quiz') }}">Random Quiz</a>
+    </div>
+  </div>
+{% endblock %}
