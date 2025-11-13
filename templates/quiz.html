@@ -1,12 +1,54 @@
 {% extends 'base.html' %}
 {% block content %}
-  <h1>Quiz</h1>
-  <div class="card mb-3">
-    <div class="card-body">
-      <h5 class="card-title">{{ card.front }}</h5>
-      <p class="text-muted">Try to recall the answer, then click reveal.</p>
-      <a class="btn btn-outline-success" href="{{ url_for('view_card', card_id=card.id) }}">Reveal Answer</a>
-      <a class="btn btn-primary ms-2" href="{{ url_for('quiz') }}">Next Card</a>
+  <div class="quiz-header d-flex justify-content-between align-items-center mb-3">
+    <h1 class="h3 m-0">Quiz</h1>
+    <div>
+      <a class="btn btn-sm btn-outline-secondary me-2" href="{{ url_for('create_card') }}">New Card</a>
+      <a class="btn btn-sm btn-outline-primary" href="{{ url_for('index') }}">All Cards</a>
     </div>
   </div>
+
+  <div class="quiz-area d-flex justify-content-center">
+    <div class="flashcard" id="flashcard" tabindex="0" aria-live="polite">
+      <div class="face front">
+        <div class="card-body">
+          <h2 class="card-title">{{ card.front }}</h2>
+          <p class="hint text-muted">Click the card or press <strong>Space</strong> to reveal the answer</p>
+        </div>
+      </div>
+      <div class="face back">
+        <div class="card-body">
+          <h2 class="card-title">Answer</h2>
+          <p class="card-text">{{ card.back }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-3 text-center">
+    <button id="revealBtn" class="btn btn-lg btn-outline-light me-2">Reveal</button>
+    <a class="btn btn-lg btn-primary ms-2" href="{{ url_for('quiz') }}">Next Card</a>
+  </div>
+
+  <script>
+    (function(){
+      const card = document.getElementById('flashcard');
+      const revealBtn = document.getElementById('revealBtn');
+      function toggle(){ card.classList.toggle('flipped'); }
+      card.addEventListener('click', toggle);
+      revealBtn.addEventListener('click', toggle);
+      document.addEventListener('keydown', (e)=>{
+        if(e.code === 'Space'){
+          e.preventDefault(); toggle();
+        }
+        if(e.key === 'ArrowRight'){
+          // go next
+          const next = document.querySelector('a[href*="/quiz"]');
+          if(next) next.click();
+        }
+      });
+      // accessibility: focus styles
+      card.addEventListener('keyup', (e)=>{ if(e.code === 'Space') toggle(); });
+    })();
+  </script>
 {% endblock %}
