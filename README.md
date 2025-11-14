@@ -54,7 +54,5 @@ Features include:
 ## 🚀 How to Run Locally
 ```bash
 git clone https://github.com/doubleudoublej/python-course.git
-cd python-flask-workshop
-pip install flask
-python app.py 
+cd python-course
 ```
