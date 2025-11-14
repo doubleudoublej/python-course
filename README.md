@@ -1,53 +1,60 @@
-# Python for the Web – Workshop Series 🚀
+# 🐍 Python & Flask Web Development Workshop Series  
 
-Welcome to the **Python for the Web Workshop Series**!
+A 7-week hands-on workshop designed to teach the **fundamentals of Python** and guide students toward building their **first Flask-powered web application** — ending with a self-directed final project.  
 
-Over the course of 7 weeks, you'll go from zero to launching your own website using Python & Flask. This repository will track our progress, notes, and projects as we learn together.
-
----
-
-## 📚 What You'll Learn
-- Setting up VS Code & running Python locally
-- Git & GitHub basics (save your progress online)
-- Python fundamentals
-- Building web apps with Flask
-- Deploying your project online
-
-## 🛠️ Prerequisites
-- [VS Code](https://code.visualstudio.com/)
-- [Python 3.10+](https://www.python.org/downloads/)
-- A GitHub account (https://github.com/)
-
-## 🚀 Getting Started
-1. **Clone this repo:**
-	```sh
-	git clone https://github.com/doubleudoublej/python-course.git
-	```
-2. **Open in VS Code**
-3. **View the presentation slides:**
-	[Workshop Slides (Canva)](https://www.canva.com/design/DAGyMMb7t9g/8mCx_QAC2_hfIuAxeSLgDg/view?utm_content=DAGyMMb7t9g&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hfc180c20d1)
-4. Follow along each week and commit your progress!
-
-## 📅 Workshop Timeline
-
-**Week 1 – Kickoff & Setup**
-- VS Code setup & running Python 🖥️
-- Git & GitHub basics (save progress online 💾)
-- Python crash course (variables, input/output, if/else)
-- Mini project: 🎲 Guess the Number Game
-
-**Week 3 – Python Fundamentals & Data Handling**
-- Data structures: Lists, Tuples, Dictionaries 📊
-- Functions: Creating reusable code blocks 🔧
-- Error handling: Try/except for robust programs 🛡️
-- File I/O: Reading and writing files 📁
-- JSON: Working with data formats 🗂️
-- Modules: Importing and using libraries 📚
-- Mini project: 👤 Profile Manager with JSON storage
-
-<!-- Add more weeks as you progress! -->
+### 📘 Course Presentation Slides  
+👉 **[View the Canva Slides](https://www.canva.com/design/DAGyMMb7t9g/8mCx_QAC2_hfIuAxeSLgDg/view?utm_content=DAGyMMb7t9g&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hfc180c20d1)**  
 
 ---
 
-## 📄 License
-MIT
+## 📚 Course Overview
+This course introduces complete beginners to Python programming and progressively bridges into web development using Flask.  
+Students start by learning essential Python syntax and logic, then apply those skills to create interactive, data-driven web applications.  
+
+By the end, participants will:
+- Understand Python data structures, functions, and error handling  
+- Be comfortable using VS Code and GitHub for version control  
+- Know how to build and serve dynamic web pages using Flask  
+- Deploy a simple full-stack application powered by Python  
+- Showcase their own project (i.e. To Do List)
+
+---
+
+
+## 🧠 Learning Outcomes
+By the end of the course, students will be able to:
+- Write clean, modular Python code  
+- Understand client–server interaction via Flask  
+- Handle form data, routing, and basic web logic  
+- Connect frontend templates with backend Python logic  
+- Apply the same framework to build their own creative web tools
+- A To-do List app after completion of course materials 
+
+---
+
+## 💻 Personal Project: Flask Flashcard App
+As a personal project extension, a **Flashcard App** was developed using Flask to assist primary school students with English vocabulary revision.  
+Features include:
+- Randomized word quizzes  
+- Simple add/edit flashcards interface  
+- Persistent storage via JSON  
+- Clean and minimal frontend with CSS integration  
+
+---
+
+## 🧩 Tech Stack
+- **Language:** Python 3  
+- **Framework:** Flask  
+- **Frontend:** HTML, CSS (Jinja2 templates)  
+- **Storage:** JSON files (no external DB for simplicity)  
+- **Tools:** VS Code, GitHub  
+
+---
+
+## 🚀 How to Run Locally
+```bash
+git clone https://github.com/doubleudoublej/python-course.git
+cd python-flask-workshop
+pip install flask
+python app.py 
+```
